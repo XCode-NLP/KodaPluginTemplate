@@ -1,0 +1,64 @@
+:root {
+  color-scheme: light dark;
+  --text: #1d1c21;
+  --muted: #6b6878;
+  --panel: #ffffff;
+  --line: #e2dfec;
+  --accent: #7a5cff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+:root[data-theme="dark"] {
+  --text: #f2f0f8;
+  --muted: #a19cb3;
+  --panel: #1d1c21;
+  --line: #34323d;
+}
+body {
+  margin: 0;
+  background: var(--panel);
+  color: var(--text);
+}
+main {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+h1 {
+  margin: 0;
+  font-size: 16px;
+}
+p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+input {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover {
+  border-color: var(--accent);
+}

@@ -1,0 +1,13 @@
+{
+  "name": "my-koda-plugin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "validate": "koda-plugin validate .",
+    "pack": "node scripts/pack.mjs",
+    "dev": "koda-plugin dev ."
+  },
+  "devDependencies": {
+    "@kodadev/desktop-plugin-sdk": "^1.0.0"
+  }
+}

@@ -1,0 +1,28 @@
+# На тег v1.2.3 собирает .kodaplugin и прикладывает его к GitHub Release.
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Версия в теге совпадает с манифестом
+        run: |
+          test "v$(node -p "require('./koda-plugin.json').version")" = "$GITHUB_REF_NAME"
+      - run: npm run validate
+      - run: npm run pack
+      - name: SHA-256
+        run: cd dist && sha256sum *.kodaplugin > SHA256SUMS
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/*.kodaplugin
+            dist/SHA256SUMS

@@ -1,0 +1,30 @@
+{
+  "id": "com.example.my-plugin",
+  "name": { "ru": "Мой плагин", "en": "My plugin" },
+  "description": {
+    "ru": "Шаблон плагина Koda Desktop: панель рядом с чатом и инструмент агента.",
+    "en": "Koda Desktop plugin template: a pane next to the chat and an agent tool."
+  },
+  "version": "0.1.0",
+  "publisher": "Your Name",
+  "engines": { "koda": ">=1.4.0", "sdk": "1" },
+  "icon": "icon.svg",
+  "main": "main.js",
+  "ui": "ui/index.html",
+  "permissions": ["agent.tools", "chat.composer"],
+  "contributes": {
+    "chatPanes": [{ "id": "main", "title": { "ru": "Мой плагин", "en": "My plugin" } }],
+    "agentTools": [
+      {
+        "name": "echo",
+        "description": "Returns the given text back. Replace with your own tool.",
+        "inputSchema": {
+          "type": "object",
+          "properties": { "text": { "type": "string", "description": "Text to echo" } },
+          "required": ["text"]
+        },
+        "readOnly": true
+      }
+    ]
+  }
+}
